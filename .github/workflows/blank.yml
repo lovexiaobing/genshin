@@ -9,7 +9,6 @@ on:
     - cron: '* * * * *'
 
 jobs:
-  permissions: write-all
   autogreen:
     runs-on: ubuntu-latest
     steps:
@@ -17,10 +16,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Auto test
-        run: |
-          git config --local user.email "lzh062106@vip.qq.com"
-          git config --local user.name "lovexiaobing"
-          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+        run : |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com
           git pull --rebase
-          git commit --allow-empty -m "test"
+          git commit --allow-empty -m "sjdjxn"
           git push
