@@ -4,11 +4,12 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: '* * * * *'
 
 jobs:
+  permissions: write-all
   autogreen:
     runs-on: ubuntu-latest
     steps:
